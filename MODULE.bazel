@@ -9,7 +9,7 @@ module(
 bazel_dep(name = "bazel_skylib", version = "1.4.2")
 bazel_dep(name = "platforms", version = "0.0.5")
 
-bazel_dep(name = "rules_python", version = "0.25.0", dev_dependency = True)
+bazel_dep(name = "rules_python", version = "0.25.0")
 
 python = use_extension(
     "@rules_python//python/extensions:python.bzl",
@@ -23,8 +23,7 @@ python.toolchain(
 
 pip = use_extension(
     "@rules_python//python/extensions:pip.bzl",
-    "pip",
-    dev_dependency = True,
+    "pip"
 )
 pip.parse(
     hub_name = "pip",
@@ -33,8 +32,8 @@ pip.parse(
 )
 use_repo(pip, "pip")
 
-bazel_dep(name = "aspect_bazel_lib", version = "1.34.0", dev_dependency = True)
-bazel_dep(name = "buildifier_prebuilt", version = "6.1.0", dev_dependency = True)
+bazel_dep(name = "aspect_bazel_lib", version = "1.34.0")
+bazel_dep(name = "buildifier_prebuilt", version = "6.1.0")
 
 nickel = use_extension(
     "//nickel:extensions.bzl",
